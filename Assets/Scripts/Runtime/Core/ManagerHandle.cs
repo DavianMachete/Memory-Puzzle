@@ -2,7 +2,6 @@ using System;
 
 using UnityEngine;
 
-// ReSharper disable once CheckNamespace
 namespace MP.Core
 {
 	public abstract class ManagerHandle : MonoBehaviour
