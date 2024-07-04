@@ -1,18 +1,18 @@
+using System.Collections.Generic;
+
 using UnityEngine;
+
 using MP.Core;
+using MP.Levels.Procedural;
 
 namespace MP.Levels
 {
     public class LevelManager : Manager<LevelManager>
     {
-        public int MaximumWidth => maximumWidth;
-        [SerializeField] private int maximumWidth = 10;
-        public int MaximumHeight => maximumHeight;
-        [SerializeField] private int maximumHeight = 10;
-        public int MinimumWidth => minimumWidth;
-        [SerializeField] private int minimumWidth = 2;
-        public int MinimumHeight => minimumHeight;
-        [SerializeField] private int minimumHeight = 2;
+        public ProceduralLevelSettings ProceduralLevelSettings => proceduralLevelSettings;
+        [SerializeField] private ProceduralLevelSettings proceduralLevelSettings;
+
+        [SerializeField] private LevelData[] preparedLevels;
         
         public int CurrentLevel => _currentLevel;
         private int _currentLevel = 1;

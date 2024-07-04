@@ -1,3 +1,4 @@
+using System;
 using MP.Levels;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,11 @@ namespace MP.Menus.Start
             var lm = LevelManager.Instance;
             var level = lm.CurrentLevel;
             currentLevel.text = string.Format(CurrentLevelFormat, level);
+        }
+
+        protected override void AnimateShow(Action onAnimated)
+        {
+            
         }
 
         private void StartGame()

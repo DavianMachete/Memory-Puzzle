@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8989153759318176279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8989153759318176273}
+  - component: {fileID: 8989153759318176272}
+  m_Layer: 0
+  m_Name: LevelManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8989153759318176273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989153759318176279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8989153759318176272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989153759318176279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7805f3ad40cbe40c3af51cd60d02ca35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proceduralLevelSettings:
+    maximumLevel: 100
+    gridSettings:
+      maximumColumns: 10
+      maximumRows: 10
+      minimumColumns: 5
+      minimumRows: 5
+    cards:
+    - id: burger
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
+    - id: car
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 64163c03720d641d9b9bdbc35e9786a3, type: 3}
+    - id: coffee
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 247e6dbe1d2e44401a31fe51fbcc23e1, type: 3}
+    - id: cow
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 4c17fa07013574be68808f3d0b5ddd70, type: 3}
+    - id: elephant
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 771b39047f19140fbae0c2273b8aceba, type: 3}
+    - id: horse
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 4eed9f6cc0edb4946a05a47340b10556, type: 3}
+    - id: hot_dog
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
+    - id: rose
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
+    - id: tree
+      difficulty: 0
+      sprite: {fileID: 21300000, guid: 00c456e6d17d54eb9b3a34f49c54ff71, type: 3}
+  preparedLevels:
+  - {fileID: 11400000, guid: af700ad71e29a478a917d31747616f9b, type: 2}
