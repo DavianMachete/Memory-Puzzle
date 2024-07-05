@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,9 @@ using MP.Levels;
 
 namespace MP.Menus.Start
 {
-    public class StartMenu : Menu
-    {
-        [SerializeField] private Button startButton;
+    public class NextMenu : Menu
+    { 
+        [SerializeField] private Button nextButton;
         [SerializeField] private TMP_Text currentLevel;
 
         private const string CurrentLevelFormat = "Current Level {0}";
@@ -19,15 +20,20 @@ namespace MP.Menus.Start
         {
             base.OnMenuStart();
             
-            startButton.onClick.RemoveAllListeners();
-            startButton.onClick.AddListener(StartGame);
+            nextButton.onClick.RemoveAllListeners();
+            nextButton.onClick.AddListener(NextLevel);
+        }
+
+        protected override void AnimateShow(Action onAnimated)
+        {
+            base.AnimateShow(onAnimated);
 
             var lm = LevelManager.Instance;
             var level = lm.CurrentLevel;
             currentLevel.text = string.Format(CurrentLevelFormat, level);
         }
 
-        private void StartGame()
+        private void NextLevel()
         {
             var gm = GameManager.Instance;
             gm.StartTheLevel();

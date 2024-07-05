@@ -84,13 +84,13 @@ namespace MP.Levels
             var settings = lm.ProceduralLevelSettings;
             var gridSettings = settings.gridSettings;
             
-            var maxColumns = gridSettings.maximumColumns;
             var minColumns = gridSettings.minimumColumns;
-            var maxRows = gridSettings.maximumRows;
+            var maxColumns = gridSettings.maximumColumns;
             var minRows = gridSettings.minimumRows;
+            var maxRows = gridSettings.maximumRows;
 
             var maxLevel = settings.maximumLevel;
-            var difficulty = level / maxLevel;
+            var difficulty = level / (float)maxLevel;
             
             var columnsValue = Mathf.Lerp(minColumns, maxColumns, difficulty);
             var rowsValue = Mathf.Lerp(minRows, maxRows, difficulty);
@@ -106,25 +106,26 @@ namespace MP.Levels
             // If area is not a multiplier of 2 we need to reproduce
             if (columnsCount > rowsCount)
             {
-                columnsCount--;
+                columnsCount = -1;
             }
             else
             {
-                rowsCount--;
+                rowsCount = -1;
             }
         }
 
         private void GenerateGrid()
         {
             var area = RowsCount * ColumnsCount;
-            var maxAvailableCardsCount = area / 2;
+            var maxAvailableCardsCount = area / 2f;
             
             // Get cards by difficulty
-            var difficulty = level / area;
-            var value = Mathf.Lerp(2, maxAvailableCardsCount, difficulty);
-            var cardsCount = Mathf.RoundToInt(value);
             var lm = LevelManager.Instance;
             var settings = lm.ProceduralLevelSettings;
+            var maxLevel = settings.maximumLevel;
+            var difficulty = level / (float)maxLevel;
+            var value = Mathf.Lerp(2f, maxAvailableCardsCount, difficulty);
+            var cardsCount = Mathf.RoundToInt(value);
             var cards = settings.cards.GetFew(cardsCount);
 
             // Update cards grid

@@ -47,9 +47,12 @@ namespace MP.Levels
             return newLevelData;
         }
         
+        // ReSharper disable Unity.PerformanceAnalysis
+        [ContextMenu("Add Level")]
         public void AddLevel()
         {
-            _currentLevel++;
+            _currentLevel += 1;
+            Debug.Log($"Level added. Current level is {_currentLevel}");
             PlayerPrefs.SetInt(LevelKey, _currentLevel);
             PlayerPrefs.Save();
         }

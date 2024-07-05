@@ -45,12 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proceduralLevelSettings:
-    maximumLevel: 100
+    maximumLevel: 70
     gridSettings:
-      maximumColumns: 10
-      maximumRows: 10
-      minimumColumns: 5
-      minimumRows: 5
+      maximumColumns: 14
+      maximumRows: 5
+      minimumColumns: 4
+      minimumRows: 3
     cards: {fileID: 11400000, guid: 93047fefbbaab4290b737ecd36251de3, type: 2}
   preparedLevels:
   - {fileID: 11400000, guid: e69c1ceb7be8b4a888132c6455695a75, type: 2}

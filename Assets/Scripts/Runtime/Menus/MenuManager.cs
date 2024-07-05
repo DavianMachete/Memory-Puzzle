@@ -33,6 +33,7 @@ namespace MP.Menus
 			return ActivateMenu(typeof(T)) as T;
 		}
 
+		// ReSharper disable Unity.PerformanceAnalysis
 		public Menu ActivateMenu(Type type)
 		{
 			// Activate the menu by its pre-existing instance (if any)
@@ -46,6 +47,7 @@ namespace MP.Menus
 			return null;
 		}
 
+		// ReSharper disable Unity.PerformanceAnalysis
 		public void ActivateMenu(Menu menu)
 		{
 			if (menu is null)
