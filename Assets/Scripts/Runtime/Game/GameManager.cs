@@ -1,4 +1,5 @@
 using System.Collections;
+using MP.Audio;
 using MP.Core;
 using MP.Levels;
 using MP.Menus;
@@ -11,6 +12,7 @@ namespace MP.Game
     public class GameManager : Manager<GameManager>
     {
         [SerializeField, Range(0f, 5f)] private float secondsToCompareCards = 1f;
+        [SerializeField, Range(0f, 5f)] private float secondsAfterLevelWin = 1f;
         
         /// <summary>
         /// Cards to compare
@@ -57,6 +59,7 @@ namespace MP.Game
 
         private IEnumerator Compare()
         {
+            var am = AudioManager.Instance;
             yield return new WaitUntil(() => _card1.IsOpened && _card2.IsOpened);
             yield return new WaitForSeconds(secondsToCompareCards);
             
@@ -72,11 +75,15 @@ namespace MP.Game
 
                 _card1 = null;
                 _card2 = null;
+                
+                am.PlayCardsMatchIncorrect();
+                
                 yield break;
             }
             
             // Add matches and hide cards from grid
             _playMenu.AddMatches();
+            am.PlayCardsMatchCorrect();
             
             _card1.Hide();
             _card2.Hide();
@@ -89,6 +96,8 @@ namespace MP.Game
             if (!allCardsMatched)
                 yield break;
 
+            yield return new WaitForSeconds(secondsAfterLevelWin);
+            am.PlayLevelWin();
             var lm = LevelManager.Instance;
             lm.AddLevel();
             var mm = MenuManager.Instance;

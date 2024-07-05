@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using DG.Tweening;
-
+using MP.Audio;
 using MP.Cards;
 using MP.Game;
 
@@ -81,6 +81,9 @@ namespace MP.Menus.Play
         {
             var gm = GameManager.Instance;
             gm.AddCardToCompare(this);
+
+            var am = AudioManager.Instance;
+            am.PlayCardFlip();
             
             rectTransform.DOKill();
             rectTransform.DORotate(Vector3.up * 90f, animationDuration / 2f).OnComplete(() =>
