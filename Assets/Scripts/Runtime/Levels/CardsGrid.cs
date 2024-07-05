@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 
@@ -16,10 +17,8 @@ namespace MP.Levels
         [SerializeField] private int rowsCount;
         public int ColumnsCount => columnsCount;
         [SerializeField] private int columnsCount;
-
         [SerializeField] private List<string> values;
-
-
+        
         private readonly Random _random;
 
         public CardsGrid(int rows, int columns)
@@ -55,6 +54,16 @@ namespace MP.Levels
 
             Debug.LogError($"There is no coordinate in grid by" +
                            $" [{row},{column}] to set card id - {value}");
+        }
+
+        /// <summary>
+        /// Calculates and return all card types count in the grid.
+        /// </summary>
+        /// <returns>All card types count</returns>
+        public int GetAllCardTypesCount()
+        {
+            var cardTypeList = values.GroupBy( cardId => cardId );
+            return cardTypeList.Count();
         }
 
         /// <summary>

@@ -6,6 +6,7 @@ namespace MP.Cards
     [CreateAssetMenu(fileName = "Cards Holder", menuName = "Memory Puzzle/Cards Holder", order = 1)]
     public class CardsHolder : ScriptableObject
     {
+        public int CardsDataCount => cards.Length;
         [SerializeField] private CardData[] cards;
 
         public bool TryGetCard(string id, out CardData data)

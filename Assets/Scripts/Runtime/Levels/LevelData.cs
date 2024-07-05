@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace MP.Levels
@@ -6,6 +5,7 @@ namespace MP.Levels
     [CreateAssetMenu(fileName = "Level", menuName = "Memory Puzzle/New Level", order = 1)]
     public class LevelData : ScriptableObject
     {
+        public int CardsTypeCount => cardsGrid.GetAllCardTypesCount();
         public int Level => level;
         [SerializeField] private int level;
         public int ColumnsCount => columnsCount;
@@ -18,7 +18,7 @@ namespace MP.Levels
         [Tooltip("Level cards grid id by coordinates, where the index will be " +
                  "the row index and the wrapper value index will be the column index.")]
         [SerializeField] private CardsGrid cardsGrid;
-
+        
         
         #region Methods -> Unity callbacks
         
@@ -127,7 +127,7 @@ namespace MP.Levels
             var value = Mathf.Lerp(2f, maxAvailableCardsCount, difficulty);
             var cardsCount = Mathf.RoundToInt(value);
             var cards = settings.cards.GetFew(cardsCount);
-
+            
             // Update cards grid
             cardsGrid.UpdateGrid(cards);
         }

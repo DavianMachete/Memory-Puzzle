@@ -33,17 +33,33 @@ namespace MP.Levels
 
         #region Methods -> Public
 
+        /// <summary>
+        /// Gets level data by <see cref="CurrentLevel"/> value from prepared
+        /// levels if exists, if so generates a new one.
+        /// </summary>
+        /// <returns>Prepared or new generated level data depending on <see cref="CurrentLevel"/></returns>
         public LevelData GetLevel()
+        {
+            // Get and return level data by current level
+           return GetLevel(CurrentLevel);
+        }
+
+        /// <summary>
+        /// Gets level data from prepared levels if exists, if so generates a new one.
+        /// </summary>
+        /// <param name="levelNumber">The value that describes level difficulty</param>
+        /// <returns>Prepared or new generated level data depending on <b>"levelNumber"</b></returns>
+        public LevelData GetLevel(int levelNumber)
         {
             // check and get Level from prepared
             foreach (var levelData in preparedLevels)
             {
-                if (levelData.Level == CurrentLevel)
+                if (levelData.Level == levelNumber)
                     return levelData;
             }
             
             // if there is no prepared level data generate new one.
-            var newLevelData = LevelData.GenerateLevel(CurrentLevel);
+            var newLevelData = LevelData.GenerateLevel(levelNumber);
             return newLevelData;
         }
         
