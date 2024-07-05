@@ -48,10 +48,9 @@ namespace MP.Game
             // assign as the second selected card
             _card2 = card;
 
-            // stop cards interactions
+            // update play menu
             _playMenu.SetBlock(true);
-            
-            // TODO: calculate turns
+            _playMenu.AddTurns();
 
             StartCoroutine(Compare());
         }
@@ -76,7 +75,9 @@ namespace MP.Game
                 yield break;
             }
             
-            // calculate matches
+            // Add matches and hide cards from grid
+            _playMenu.AddMatches();
+            
             _card1.Hide();
             _card2.Hide();
 

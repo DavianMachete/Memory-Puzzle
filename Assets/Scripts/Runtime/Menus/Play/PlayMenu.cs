@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+using TMPro;
+
 using MP.Cards;
 using MP.Levels;
 
@@ -18,6 +20,14 @@ namespace MP.Menus.Play
         [Tooltip("The ratio of cell width divides to cell height.")]
         [SerializeField, Range(0.01f, 2f)] private float cellHeightToWeightRatio;
 
+        [SerializeField] private TMP_Text turnsCount;
+        [SerializeField] private TMP_Text matchesCount;
+        
+        public int TurnsCount { get; private set; }
+        public int MatchesCount { get; private set; }
+
+        private const string TurnsCountTextFormat = "Turns\n{0}";
+        private const string MatchesCountTextFormat = "Matches\n{0}";
         private readonly List<Card> _instantiatedCards = new();
 
         public void Initialize(LevelData levelData)
@@ -39,6 +49,18 @@ namespace MP.Menus.Play
             return _instantiatedCards.All(card => card.IsHidden);
         }
 
+        public void AddTurns()
+        {
+            TurnsCount += 1;
+            SetTurnsCount(TurnsCount);
+        }
+        
+        public void AddMatches()
+        {
+            MatchesCount += 1;
+            SetMatchesCount(MatchesCount);
+        }
+
         #region Methods -> Private
 
         private void ResetMenu()
@@ -49,6 +71,20 @@ namespace MP.Menus.Play
             }
             _instantiatedCards.Clear();
             
+            SetTurnsCount(0);
+            SetMatchesCount(0);
+        }
+
+        private void SetTurnsCount(int count)
+        {
+            TurnsCount = count;
+            turnsCount.text = string.Format(TurnsCountTextFormat, count);
+        }
+
+        private void SetMatchesCount(int count)
+        {
+            MatchesCount = count;
+            matchesCount.text = string.Format(MatchesCountTextFormat, count);
         }
 
         private void InitializeGrid(LevelData levelData)

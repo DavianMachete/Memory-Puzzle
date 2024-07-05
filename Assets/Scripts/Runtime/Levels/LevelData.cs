@@ -46,8 +46,8 @@ namespace MP.Levels
                 cardsGrid.ColumnsCount == columnsCount) 
                 return;
             
+            Debug.Log($"Validating the cards grid with rows: {rowsCount}, columns: {columnsCount}");
             cardsGrid = new CardsGrid(rowsCount, columnsCount);
-            Debug.Log($"The cards grid validated with rows: {rowsCount}, columns: {columnsCount}");
         }
 
         public string GetCardId(int row, int column)
@@ -106,11 +106,11 @@ namespace MP.Levels
             // If area is not a multiplier of 2 we need to reproduce
             if (columnsCount > rowsCount)
             {
-                columnsCount = -1;
+                columnsCount -= 1;
             }
             else
             {
-                rowsCount = -1;
+                rowsCount -= 1;
             }
         }
 
