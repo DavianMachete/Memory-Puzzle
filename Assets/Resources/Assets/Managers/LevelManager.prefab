@@ -51,33 +51,7 @@ MonoBehaviour:
       maximumRows: 10
       minimumColumns: 5
       minimumRows: 5
-    cards:
-    - id: burger
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
-    - id: car
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 64163c03720d641d9b9bdbc35e9786a3, type: 3}
-    - id: coffee
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 247e6dbe1d2e44401a31fe51fbcc23e1, type: 3}
-    - id: cow
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 4c17fa07013574be68808f3d0b5ddd70, type: 3}
-    - id: elephant
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 771b39047f19140fbae0c2273b8aceba, type: 3}
-    - id: horse
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 4eed9f6cc0edb4946a05a47340b10556, type: 3}
-    - id: hot_dog
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
-    - id: rose
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
-    - id: tree
-      difficulty: 0
-      sprite: {fileID: 21300000, guid: 00c456e6d17d54eb9b3a34f49c54ff71, type: 3}
+    cards: {fileID: 11400000, guid: 93047fefbbaab4290b737ecd36251de3, type: 2}
   preparedLevels:
-  - {fileID: 11400000, guid: af700ad71e29a478a917d31747616f9b, type: 2}
+  - {fileID: 11400000, guid: e69c1ceb7be8b4a888132c6455695a75, type: 2}
+  - {fileID: 11400000, guid: 094166b8990fb44f7b2058d79eea994d, type: 2}

@@ -1,4 +1,5 @@
 using System;
+using MP.Cards;
 
 namespace MP.Levels.Procedural
 {
@@ -7,6 +8,6 @@ namespace MP.Levels.Procedural
     {
         public int maximumLevel;
         public GridSettings gridSettings;
-        public CardData[] cards;
+        public CardsHolder cards;
     }
 }

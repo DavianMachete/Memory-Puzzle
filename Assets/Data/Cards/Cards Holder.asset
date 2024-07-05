@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d6d40a135c6b4254a79bdc703af819e, type: 3}
+  m_Name: Cards Holder
+  m_EditorClassIdentifier: 
+  cards:
+  - id: banana
+    sprite: {fileID: 21300000, guid: 086e0fb07130c4df79752ba980f95307, type: 3}
+  - id: burger
+    sprite: {fileID: 21300000, guid: 681c69bc9b6214a86872e286c6432607, type: 3}
+  - id: cactus
+    sprite: {fileID: 21300000, guid: 7e1c54e40f06f495fab0c29d2c80bac2, type: 3}
+  - id: cake
+    sprite: {fileID: 21300000, guid: a2f22f9a74d2f441782a005a398aa29e, type: 3}
+  - id: car
+    sprite: {fileID: 21300000, guid: 64163c03720d641d9b9bdbc35e9786a3, type: 3}
+  - id: coffee
+    sprite: {fileID: 21300000, guid: 247e6dbe1d2e44401a31fe51fbcc23e1, type: 3}
+  - id: cow
+    sprite: {fileID: 21300000, guid: 4c17fa07013574be68808f3d0b5ddd70, type: 3}
+  - id: elephant
+    sprite: {fileID: 21300000, guid: 771b39047f19140fbae0c2273b8aceba, type: 3}
+  - id: horse
+    sprite: {fileID: 21300000, guid: 4eed9f6cc0edb4946a05a47340b10556, type: 3}
+  - id: hot_dog
+    sprite: {fileID: 21300000, guid: 8998f89de15c347b6b9f1128e65626c1, type: 3}
+  - id: ice_cream
+    sprite: {fileID: 21300000, guid: fb3db4f401bb0484a8f6ad75b61c473d, type: 3}
+  - id: jet_plane
+    sprite: {fileID: 21300000, guid: fe77e72cae55a4072a6d46912b00b3a5, type: 3}
+  - id: rose
+    sprite: {fileID: 21300000, guid: a84af217063574298928ff06f9715cb9, type: 3}
+  - id: tree
+    sprite: {fileID: 21300000, guid: 00c456e6d17d54eb9b3a34f49c54ff71, type: 3}

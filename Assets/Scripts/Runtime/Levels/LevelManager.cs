@@ -19,6 +19,8 @@ namespace MP.Levels
 
         private const string LevelKey = "Level";
 
+        #region Methods -> Manager overrides
+        
         protected override void OnAwakeManager()
         {
             LoadLevel();
@@ -28,13 +30,33 @@ namespace MP.Levels
         {
             return false;
         }
+        
+        #endregion
 
+        #region Methods -> Public
+
+        public LevelData GetLevel()
+        {
+            // check and get Level from prepared
+            foreach (var levelData in preparedLevels)
+            {
+                if (levelData.Level == CurrentLevel)
+                    return levelData;
+            }
+            
+            // if there is no prepared level data generate new one.
+            var newLevelData = LevelData.GenerateLevel(CurrentLevel);
+            return newLevelData;
+        }
+        
         public void AddLevel()
         {
             _currentLevel++;
             PlayerPrefs.SetInt(LevelKey, _currentLevel);
             PlayerPrefs.Save();
         }
+        
+        #endregion
 
         private void LoadLevel()
         {

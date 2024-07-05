@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MP.Levels
+namespace MP.Cards
 {
     [Serializable]
     public struct CardData
