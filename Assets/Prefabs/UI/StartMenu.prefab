@@ -280,6 +280,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7649361794684784203}
   - component: {fileID: 7649361794684784202}
+  - component: {fileID: 594673617351722560}
   m_Layer: 5
   m_Name: StartMenu
   m_TagString: Untagged
@@ -324,6 +325,18 @@ MonoBehaviour:
   menuType: 1
   startButton: {fileID: 7649361795046433940}
   currentLevel: {fileID: 7649361794532124335}
+--- !u!225 &594673617351722560
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7649361794684784204}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &7649361795046433942
 GameObject:
   m_ObjectHideFlags: 0

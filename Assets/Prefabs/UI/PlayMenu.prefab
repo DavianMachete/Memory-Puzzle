@@ -196,6 +196,7 @@ MonoBehaviour:
   cellHeightToWeightRatio: 0.625
   turnsCount: {fileID: 3274650493678205703}
   matchesCount: {fileID: 2774383115701926581}
+  timeToShowAll: 2.2
 --- !u!225 &6120261067956386325
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -34,9 +34,10 @@ namespace MP.Menus.Play
             image.sprite = data.sprite;
             image.preserveAspect = true;
 
-            SetBlock(false);
+            SetBlock(true);
+            backgroundObject.SetActive(false);
             IsHidden = false;
-            IsOpened = false;
+            IsOpened = true;
         }
 
         public void SetBlock(bool value)

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,6 +23,8 @@ namespace MP.Menus.Play
 
         [SerializeField] private TMP_Text turnsCount;
         [SerializeField] private TMP_Text matchesCount;
+
+        [SerializeField, Range(0f, 5f)] private float timeToShowAll;
         
         public int TurnsCount { get; private set; }
         public int MatchesCount { get; private set; }
@@ -91,6 +94,7 @@ namespace MP.Menus.Play
         {
             UpdateGrid(levelData);
             InstantiateCards(levelData);
+            StartCoroutine(WaitThenCloseAllCards());
         }
 
         private void UpdateGrid(LevelData levelData)
@@ -126,6 +130,16 @@ namespace MP.Menus.Play
                 }
             }
         }
+
+        private IEnumerator WaitThenCloseAllCards()
+        {
+            yield return new WaitForSeconds(timeToShowAll);
+            foreach (var instantiatedCard in _instantiatedCards)
+            {
+                instantiatedCard.Close();
+                instantiatedCard.SetBlock(false);
+            }
+        } 
 
         #endregion
     }
