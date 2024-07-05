@@ -1,4 +1,5 @@
 using System;
+using MP.Game;
 using MP.Levels;
 using TMPro;
 using UnityEngine;
@@ -25,14 +26,10 @@ namespace MP.Menus.Start
             currentLevel.text = string.Format(CurrentLevelFormat, level);
         }
 
-        protected override void AnimateShow(Action onAnimated)
-        {
-            
-        }
-
         private void StartGame()
         {
-            
+            var gm = GameManager.Instance;
+            gm.StartTheLevel();
         }
     }
 }

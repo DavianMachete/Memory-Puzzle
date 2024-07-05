@@ -1,4 +1,5 @@
 using System;
+using MP.Menus.Start;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -17,7 +18,7 @@ namespace MP.Menus.Background
             // Activate this menu.
             var mm = MenuManager.Instance;
             mm.ActivateMenu(this);
-            
+            mm.ActivateMenu<StartMenu>();
             // Update background on each menu activation.
             mm.OnManuActivated += UpdateBackground;
         }

@@ -15,3 +15,11 @@ MonoBehaviour:
   level: 1
   columnsCount: 2
   rowsCount: 2
+  cardsGrid:
+    rowsCount: 2
+    columnsCount: 2
+    values:
+    - banana
+    - burger
+    - burger
+    - banana

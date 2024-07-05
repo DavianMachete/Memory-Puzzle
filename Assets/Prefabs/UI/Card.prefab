@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 271.25
+  m_fontSize: 18
   m_fontSizeBase: 231.1
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -311,6 +311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 4348124017946112995}
   button: {fileID: 4348124017511952833}
+  animationDuration: 0.28
+  backgroundObject: {fileID: 4348124018727657094}
   rectTransform: {fileID: 4348124017606634545}
 --- !u!222 &4348124017606634556
 CanvasRenderer:

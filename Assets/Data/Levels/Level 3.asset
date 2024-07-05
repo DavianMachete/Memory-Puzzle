@@ -12,6 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308b9c4c5983140df997b74965a8d347, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
-  level: 0
+  level: 3
   columnsCount: 4
   rowsCount: 3
+  cardsGrid:
+    rowsCount: 3
+    columnsCount: 4
+    values:
+    - banana
+    - cactus
+    - burger
+    - cactus
+    - cactus
+    - banana
+    - cake
+    - burger
+    - burger
+    - cake
+    - burger
+    - cactus

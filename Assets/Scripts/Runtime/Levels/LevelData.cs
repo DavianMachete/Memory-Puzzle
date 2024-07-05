@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using MP.Cards;
+using System;
 using UnityEngine;
 
 namespace MP.Levels
@@ -18,8 +17,19 @@ namespace MP.Levels
 
         [Tooltip("Level cards grid id by coordinates, where the index will be " +
                  "the row index and the wrapper value index will be the column index.")]
-        [SerializeField] private string[,] _cardsGrid;
+        [SerializeField] private CardsGrid cardsGrid;
 
+        
+        #region Methods -> Unity callbacks
+        
+        private void OnValidate()
+        {
+            ValidateGrid();
+        }
+
+        #endregion
+
+        #region Methods -> Public
         
         public static LevelData GenerateLevel(int level)
         {
@@ -27,35 +37,33 @@ namespace MP.Levels
             newLevelData.Generate(level);
             return newLevelData;
         }
-        
-        public string GetCardId(int rowIndex, int columnIndex)
-        {
-            if (rowIndex >= _cardsGrid.GetLength(0) ||
-                columnIndex >= _cardsGrid.GetLength(1))
-                return string.Empty;
-            
-            return _cardsGrid[rowIndex, columnIndex];
-        }
 
         // ReSharper disable Unity.PerformanceAnalysis
-        public void SetCardId(string value, int rowIndex, int columnIndex)
-        {
-            if (rowIndex >= _cardsGrid.GetLength(0) ||
-                columnIndex >= _cardsGrid.GetLength(1))
-                Debug.LogError("Card coordinates are out of bounds.");
-
-            _cardsGrid[rowIndex, columnIndex] = value;
-        }
-
         public void ValidateGrid()
         {
-            if (_cardsGrid == null || 
-                _cardsGrid.GetLength(0) != rowsCount || 
-                _cardsGrid.GetLength(1) != columnsCount)
-            {
-                _cardsGrid = new string[rowsCount, columnsCount];
-            }
+            if (cardsGrid != null && 
+                cardsGrid.RowsCount == rowsCount &&
+                cardsGrid.ColumnsCount == columnsCount) 
+                return;
+            
+            cardsGrid = new CardsGrid(rowsCount, columnsCount);
+            Debug.Log($"The cards grid validated with rows: {rowsCount}, columns: {columnsCount}");
         }
+
+        public string GetCardId(int row, int column)
+        {
+            return cardsGrid.Get(row, column);
+        }
+        
+        public void SetCardId(string value, int row, int col)
+        {
+            cardsGrid.Set(row, col, value);
+        }
+
+        #endregion
+        
+
+        #region Methods -> Private
         
         /// <summary>
         /// Generates a new level data model by level number
@@ -67,11 +75,7 @@ namespace MP.Levels
             
             CalculateGridSize();
             ValidateGrid();
-        }
-        
-        private void OnValidate()
-        {
-            ValidateGrid();
+            GenerateGrid();
         }
 
         private void CalculateGridSize()
@@ -123,48 +127,10 @@ namespace MP.Levels
             var settings = lm.ProceduralLevelSettings;
             var cards = settings.cards.GetFew(cardsCount);
 
-            AssignCards(cards);
-            Shuffle();
+            // Update cards grid
+            cardsGrid.UpdateGrid(cards);
         }
-
-        private void AssignCards(IReadOnlyList<CardData> cardsData)
-        {
-            var dataIndex = 0;
-            var counter = 0;
-            for (var row = 0; row < rowsCount; row++)
-            {
-                for (var col = 0; col < columnsCount; col++)
-                {
-                    counter++;
-                    _cardsGrid[row, col] = cardsData[dataIndex].id;
-                    if (counter != 2) 
-                        continue;
-                    
-                    counter = 0;
-                    dataIndex++;
-                    if (dataIndex >= cardsData.Count)
-                        dataIndex = 0;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Shuffles the grid using the Fisher-Yates algorithm
-        /// </summary>
-        private void Shuffle()
-        {
-            var random = new System.Random();
-            for (var i = _cardsGrid.Length - 1; i > 0; i--)
-            {
-                var i0 = i / columnsCount;
-                var i1 = i % columnsCount;
-
-                var j = random.Next(i + 1);
-                var j0 = j / columnsCount;
-                var j1 = j % columnsCount;
-
-                (_cardsGrid[i0, i1], _cardsGrid[j0, j1]) = (_cardsGrid[j0, j1], _cardsGrid[i0, i1]);
-            }
-        }
+        
+        #endregion
     }
 }
